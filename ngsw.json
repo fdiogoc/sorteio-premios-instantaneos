@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1697634568465,
+  "timestamp": 1697634990052,
   "index": "/sorteio-premios-instantaneos/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/sorteio-premios-instantaneos/favicon.ico",
         "/sorteio-premios-instantaneos/index.html",
-        "/sorteio-premios-instantaneos/main.54c3b90d71568fb5.js",
+        "/sorteio-premios-instantaneos/main.e25b67875acbd5ba.js",
         "/sorteio-premios-instantaneos/manifest.webmanifest",
         "/sorteio-premios-instantaneos/polyfills.78a532808cb79c06.js",
         "/sorteio-premios-instantaneos/runtime.63c58a12eef60534.js",
-        "/sorteio-premios-instantaneos/styles.2201d2876fc98566.css"
+        "/sorteio-premios-instantaneos/styles.7eb96eefe2dc6c74.css"
       ],
       "patterns": []
     },
@@ -54,12 +54,12 @@
     "/sorteio-premios-instantaneos/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
     "/sorteio-premios-instantaneos/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
     "/sorteio-premios-instantaneos/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/sorteio-premios-instantaneos/index.html": "d184c23b2960b5ad79e961cb8ac9ee182d3994b6",
-    "/sorteio-premios-instantaneos/main.54c3b90d71568fb5.js": "d41f0b9b96c930aee2024f7d7f0a3ccb465db51d",
+    "/sorteio-premios-instantaneos/index.html": "6f0a890117f0f5b1a8a92527f5a7b565bc99288c",
+    "/sorteio-premios-instantaneos/main.e25b67875acbd5ba.js": "6f176d2ce0f616f4797743516770226cc6855cec",
     "/sorteio-premios-instantaneos/manifest.webmanifest": "ff7cc6a3f138611ccd1883274d504dc6e2e9f54f",
     "/sorteio-premios-instantaneos/polyfills.78a532808cb79c06.js": "7be093f05fc1aa5e9abe4d78dd63de7aa34aee9b",
     "/sorteio-premios-instantaneos/runtime.63c58a12eef60534.js": "19fa3539f064f156acd7bbd50d99a149ef9d9eae",
-    "/sorteio-premios-instantaneos/styles.2201d2876fc98566.css": "64327f3ab41d8d62b3c96db1c0ea27ace66831f7"
+    "/sorteio-premios-instantaneos/styles.7eb96eefe2dc6c74.css": "34f5d8632f1fc73907cdcf9c097fa0a951260298"
   },
   "navigationUrls": [
     {
