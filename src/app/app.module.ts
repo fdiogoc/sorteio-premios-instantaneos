@@ -3,14 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BalloonComponent } from './balloon/balloon.component';
+import { NgParticlesModule } from "ng-particles";
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BalloonComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

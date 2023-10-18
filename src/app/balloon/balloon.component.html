@@ -1,0 +1,7 @@
+<div class="balloon-container">
+    <img [@float]="state" [@explode]="explodeState" (click)="explode()" class="balloon" src="assets/balao.png"
+        alt="balloon">
+
+</div>
+<ng-particles [id]="id" [options]="options" [particlesInit]="particlesInit"
+    (particlesLoaded)="particlesLoaded($event)"></ng-particles>
