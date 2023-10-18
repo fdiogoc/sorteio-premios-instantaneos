@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1697634420237,
+  "timestamp": 1697634568465,
   "index": "/sorteio-premios-instantaneos/index.html",
   "assetGroups": [
     {
@@ -54,7 +54,7 @@
     "/sorteio-premios-instantaneos/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
     "/sorteio-premios-instantaneos/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
     "/sorteio-premios-instantaneos/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/sorteio-premios-instantaneos/index.html": "c84df20909d3c719111817c76addfe633815c693",
+    "/sorteio-premios-instantaneos/index.html": "d184c23b2960b5ad79e961cb8ac9ee182d3994b6",
     "/sorteio-premios-instantaneos/main.54c3b90d71568fb5.js": "d41f0b9b96c930aee2024f7d7f0a3ccb465db51d",
     "/sorteio-premios-instantaneos/manifest.webmanifest": "ff7cc6a3f138611ccd1883274d504dc6e2e9f54f",
     "/sorteio-premios-instantaneos/polyfills.78a532808cb79c06.js": "7be093f05fc1aa5e9abe4d78dd63de7aa34aee9b",
