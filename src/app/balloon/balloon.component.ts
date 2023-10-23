@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { ClickMode, Container, Engine, HoverMode, MoveDirection, OutMode, StartValueType } from 'tsparticles-engine';
 import { loadSlim } from "tsparticles-slim";
@@ -31,6 +31,8 @@ import { loadSlim } from "tsparticles-slim";
 export class BalloonComponent implements OnInit
 {
 
+  @Output() actionCompleted = new EventEmitter<void>();
+
   state = 'initial';
   explodeState = 'inflated';
   id = "tsparticles";
@@ -41,8 +43,6 @@ export class BalloonComponent implements OnInit
           enable: true,
           mode: ClickMode.push,
         }
-
-
       },
       modes: {
         push: {
@@ -125,6 +125,11 @@ export class BalloonComponent implements OnInit
   explode()
   {
     this.explodeState = 'exploded';
+
+    setTimeout(() =>
+    {
+      this.actionCompleted.emit();
+    }, 3000); // 3000 milissegundos = 3 segundos
   }
 
   particlesLoaded(container: Container): void
@@ -134,11 +139,6 @@ export class BalloonComponent implements OnInit
   async particlesInit(engine: Engine): Promise<void>
   {
     console.log(engine);
-
-    // Starting from 1.19.0 you can add custom presets or shape here, using the current tsParticles instance (main)
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    //await loadFull(engine);
     await loadSlim(engine);
   }
 }

@@ -7,10 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BalloonComponent } from './balloon/balloon.component';
 import { NgParticlesModule } from "ng-particles";
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BalloonComponent
+    BalloonComponent,
+    LoginFormComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
