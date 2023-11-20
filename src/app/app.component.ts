@@ -9,20 +9,9 @@ import { initFlowbite } from 'flowbite';
 export class AppComponent implements OnInit 
 {
 
-  showBalloon: boolean = false;
-  title = 'sorteio-premios-instantaneos';
   ngOnInit(): void
   {
     initFlowbite();
-  }
-
-  toggleBalloon(): void
-  {
-    this.showBalloon = !this.showBalloon;
-  }
-  handleActionCompleted(): void
-  {
-    this.showBalloon = false;
   }
 
 }

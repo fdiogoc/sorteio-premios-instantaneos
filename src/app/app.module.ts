@@ -9,18 +9,27 @@ import { NgParticlesModule } from "ng-particles";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PremiosComponent } from './premios/premios.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     BalloonComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    PremiosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgParticlesModule,
+    FormsModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
