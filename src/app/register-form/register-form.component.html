@@ -1,0 +1,102 @@
+<section class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+
+        <div
+            class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Criar uma conta
+                    <!-- <div>Form Valid: {{ form.valid }}</div> -->
+                </h1>
+                <form class="space-y-4 md:space-y-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div>
+                        <label for="cpf"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
+                        <input type="text" formControlName="cpf" id="cpf"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="CPF" required="">
+
+                        <div *ngIf="form.get('cpf')?.hasError('required') && form.get('cpf')?.touched"
+                            class="text-red-500">
+                            O CPF é obrigatório.
+                        </div>
+                        <div *ngIf="form.get('cpf')?.hasError('invalidCpf') && form.get('cpf')?.touched"
+                            class="text-red-500">
+                            CPF inválido.
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+                        <input type="email" formControlName="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="name@company.com" required="">
+
+                        <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
+                            class="text-red-500">
+                            O e-mail é obrigatório.
+                        </div>
+                        <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
+                            class="text-red-500">
+                            O e-mail não é válido.
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
+                        <input type="password" formControlName="password" id="password" placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+
+                        <div *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched"
+                            class="text-red-500">
+                            A senha é obrigatória.
+                        </div>
+                        <div *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.touched"
+                            class="text-red-500">
+                            A senha deve ter no mínimo 6 caracteres.
+                        </div>
+                    </div>
+                    <div>
+                        <label for="confirm-password"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme a
+                            senha</label>
+                        <input type="password" id="confirm-password" formControlName="confirmPassword"
+                            placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required="">
+                        <div *ngIf="form.get('confirmPassword')?.hasError('required') && form.get('confirmPassword')?.touched"
+                            class="text-red-500">
+                            A confirmação de senha é obrigatória.
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="terms" aria-describedby="terms" type="checkbox" id="terms"
+                                formControlName="terms"
+                                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                                required>
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Eu aceito os <a
+                                    class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                    href="#">Termos e Condições</a></label>
+                        </div>
+                    </div>
+                    <div *ngIf="form.get('terms')?.errors && form.get('terms')?.touched">
+                        <p class="text-red-500">Você deve aceitar os Termos e Condições.</p>
+                    </div>
+                    <button type="submit" [disabled]="!form.valid" [class.bg-primary-600]="form.valid"
+                        [class.bg-gray-400]="!form.valid" [class.text-white]="form.valid"
+                        [class.text-gray-800]="!form.valid"
+                        class="w-full text-white bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 ">Criar
+                        conta</button>
+                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                        Ja tem uma conta? <a routerLink="/"
+                            class="font-medium text-primary-600 hover:underline dark:text-primary-500">Entrar</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -9,13 +9,10 @@ import { initFlowbite } from 'flowbite';
 export class AppComponent implements OnInit 
 {
 
-  title = 'sorteio-premios-instantaneos';
   ngOnInit(): void
   {
     initFlowbite();
   }
-  id = "tsparticles";
-
 
 }
 

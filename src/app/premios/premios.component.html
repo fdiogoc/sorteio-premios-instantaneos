@@ -1,0 +1,40 @@
+<div class="container mx-auto mt-8">
+    <h2 class="text-2xl font-semibold mb-4">Numeros da sorte</h2>
+
+    <app-balloon *ngIf="showBalloon && selectedNumberId !== null" [numberId]="selectedNumberId"
+        class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center"
+        (actionCompleted)="handleActionCompleted($event)">
+    </app-balloon>
+
+    <ul>
+        <li *ngFor="let number of luckyNumbers" class="mb-2 bg-gray-100 p-2 rounded relative z-9">
+            <div class="flex justify-between items-center">
+                <div>
+                    <!-- Formatar data usando o pipe 'date' -->
+                    <p>Data de Registro: {{ number.data | date:'dd/MM/yyyy' }}</p>
+
+                    <!-- Formatar valor monetário usando o pipe 'currency' -->
+                    <p>Valor: {{ number.valor_cupom| currency:'BRL':'symbol':'1.2-2' }}</p>
+
+                    <span class="font-semibold">Número:</span> {{ number.id }}<br>
+                    <span class="font-semibold">Prêmio Instantâneo:</span> {{ number.premio_instataneo_disponivel ?
+                    'Sim' : 'Não' }}<br>
+                    <span [ngClass]="{'text-green-700': number.winner, 'text-red-700': !number.winner}"
+                        class="font-semibold">
+                        Vencedor: {{ number.winner ? 'Sim' : 'Não' }}
+                    </span>
+                </div>
+                <!-- Add text "Clique para concorrer a um prêmio instantâneo" on the right side -->
+                <div *ngIf="number.premio_instataneo_disponivel" class="text-primary-700 text-lg font-semibold">
+                    Clique para concorrer a um prêmio instantâneo
+                </div>
+            </div>
+
+            <div *ngIf="number.premio_instataneo_disponivel" class="absolute top-0 left-0 w-full h-full z-0"
+                [ngClass]="{'hidden': showBalloon}" (click)="toggleBalloon(number.id)">
+
+            </div>
+
+        </li>
+    </ul>
+</div>
