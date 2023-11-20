@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "cpf": "1",
+      "password": "1"
+    },
+    {
+      "id": 2,
+      "cpf": "2",
+      "password": "2"
+    },
+    {
+      "cpf": "40601682890",
+      "email": "dihc@gmai.com",
+      "password": "123456",
+      "terms": true,
+      "id": 3
+    }
+  ]
+}
