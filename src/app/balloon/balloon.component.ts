@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { ClickMode, Container, Engine, HoverMode, MoveDirection, OutMode, StartValueType } from 'tsparticles-engine';
 import { loadSlim } from "tsparticles-slim";
@@ -30,8 +30,8 @@ import { loadSlim } from "tsparticles-slim";
 })
 export class BalloonComponent implements OnInit
 {
-
-  @Output() actionCompleted = new EventEmitter<void>();
+  @Input() numberId: number = 0;
+  @Output() actionCompleted = new EventEmitter<number>();
 
   state = 'initial';
   explodeState = 'inflated';
@@ -122,14 +122,14 @@ export class BalloonComponent implements OnInit
     }, 3000);
   }
 
-  explode()
+  explode(numberId: number): void 
   {
     this.explodeState = 'exploded';
 
     setTimeout(() =>
     {
-      this.actionCompleted.emit();
-    }, 3000); // 3000 milissegundos = 3 segundos
+      this.actionCompleted.emit(numberId);
+    }, 1000);
   }
 
   particlesLoaded(container: Container): void
