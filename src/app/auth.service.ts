@@ -60,7 +60,16 @@ export class AuthService
     const { password, ...dadosSegurosUsuario } = user;
     localStorage.setItem('usuario', JSON.stringify(dadosSegurosUsuario));
   }
-
+  getUserCPF(): string
+  {
+    const usuarioString = localStorage.getItem('usuario');
+    if (usuarioString)
+    {
+      const usuario = JSON.parse(usuarioString);
+      return usuario.cpf || '';
+    }
+    return '';
+  }
   logout(): void
   {
     localStorage.removeItem('usuario');
