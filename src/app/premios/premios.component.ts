@@ -21,7 +21,7 @@ interface LuckyNumber
 })
 export class PremiosComponent implements OnInit
 {
-  apiUrl = 'http://localhost:3000/numeros_sorte';
+  apiUrl = 'https://my-json-server.typicode.com/fdiogoc/sorteio-premios-instantaneos/numeros_sorte';
   cpf!: string;
   luckyNumbers: LuckyNumber[] = [];
   showBalloon: boolean = false;

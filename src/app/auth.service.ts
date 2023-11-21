@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class AuthService
 {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
-  private readonly apiUrl = 'http://localhost:3000/users';
+  private readonly apiUrl = 'https://my-json-server.typicode.com/fdiogoc/sorteio-premios-instantaneos/users';
 
   constructor(private http: HttpClient) { }
   get isLoggedIn()
