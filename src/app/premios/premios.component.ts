@@ -1,18 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../shared/services/auth.service';
 import { Observable } from 'rxjs';
+import { LuckyNumberService } from '../shared/services/lucky-number.service';
+import { LuckyNumber } from '../shared/models/lucky-number';
 
-interface LuckyNumber
-{
-  id: number;
-  cpf: string;
-  premio_instataneo: string;
-  data: string;
-  valor_cupom: number;
-  premio_instataneo_disponivel: boolean;
-  winner: boolean;
-}
+
 
 @Component({
   selector: 'app-premios',
@@ -21,13 +14,12 @@ interface LuckyNumber
 })
 export class PremiosComponent implements OnInit
 {
-  apiUrl = 'https://my-json-server.typicode.com/fdiogoc/sorteio-premios-instantaneos/numeros_sorte';
   cpf!: string;
   luckyNumbers: LuckyNumber[] = [];
   showBalloon: boolean = false;
   selectedNumberId: number | null = null;
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private luckyNumberService: LuckyNumberService) { }
 
   ngOnInit(): void
   {
@@ -37,11 +29,10 @@ export class PremiosComponent implements OnInit
   }
   fetchLuckyNumbers()
   {
-    const apiUrl = `http://localhost:3000/numeros_sorte?cpf=${this.cpf}`;
-    this.http.get(apiUrl).subscribe(
-      (data: Object) =>
+    this.luckyNumberService.fetchLuckyNumbers().subscribe(
+      (data: LuckyNumber[]) =>
       {
-        this.luckyNumbers = data as LuckyNumber[];
+        this.luckyNumbers = data;
         console.log('Lucky numbers fetched:', this.luckyNumbers);
       },
       (error) =>
@@ -53,19 +44,19 @@ export class PremiosComponent implements OnInit
 
   updateNumero(numberId: number)
   {
-
-    const dataToUpdate = { premio_instataneo_disponivel: false };
-
-    const url = `${this.apiUrl}/${numberId}`;
-
-    this.http.patch(url, dataToUpdate).subscribe((response) =>
-    {
-      console.log('Registro atualizado com sucesso:', response);
-      this.fetchLuckyNumbers();
-
-    });
-
+    this.luckyNumberService.updateNumero(numberId).subscribe(
+      (response) =>
+      {
+        console.log('Registro atualizado com sucesso:', response);
+        this.fetchLuckyNumbers();
+      },
+      (error) =>
+      {
+        console.error('Error updating lucky number:', error);
+      }
+    );
   }
+
 
 
   toggleBalloon(numberId: number): void

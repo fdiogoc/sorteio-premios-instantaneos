@@ -12,7 +12,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PremiosComponent } from './premios/premios.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,

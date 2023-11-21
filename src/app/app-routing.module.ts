@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PremiosComponent } from './premios/premios.component';
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/premios', pathMatch: 'full' },
