@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { LuckyNumber } from '../models/lucky-number';
+import { API_BASE_URL } from './api.config';
 @Injectable({
   providedIn: 'root'
 })
 export class LuckyNumberService
 {
-  apiUrl = 'https://my-json-server.typicode.com/fdiogoc/sorteio-premios-instantaneos/numeros_sorte';
+  apiUrl = `${API_BASE_URL}/numeros_sorte`;
   cpf!: string;
 
   constructor(private http: HttpClient, private authService: AuthService)

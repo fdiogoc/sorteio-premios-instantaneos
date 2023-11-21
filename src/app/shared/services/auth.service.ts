@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { API_BASE_URL } from './api.config';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService
 {
   private isAuthenticated = new BehaviorSubject<boolean>(false);
-  private readonly apiUrl = 'https://my-json-server.typicode.com/fdiogoc/sorteio-premios-instantaneos/users';
+  private readonly apiUrl = `${API_BASE_URL}/users`;
 
   constructor(private http: HttpClient) { }
   get isLoggedIn()
