@@ -9,13 +9,6 @@
       "id": 2,
       "cpf": "2",
       "password": "2"
-    },
-    {
-      "cpf": "40601682890",
-      "email": "dihc@gmai.com",
-      "password": "123456",
-      "terms": true,
-      "id": 3
     }
   ],
   "numeros_sorte": [
@@ -24,7 +17,7 @@
       "cpf": "1",
       "premio_instataneo": "10",
       "data": "2023-10-10",
-      "premio_instataneo_disponivel": false,
+      "premio_instataneo_disponivel": true,
       "valor_cupom": "10.55",
       "winner": false
     },
@@ -33,7 +26,7 @@
       "cpf": "1",
       "premio_instataneo": "",
       "data": "2023-11-10",
-      "premio_instataneo_disponivel": false,
+      "premio_instataneo_disponivel": true,
       "valor_cupom": "144.55",
       "winner": false
     },
@@ -44,7 +37,7 @@
       "data": "2023-11-11",
       "premio_instataneo_disponivel": false,
       "valor_cupom": "104.20",
-      "winner": false
+      "winner": true
     },
     {
       "id": 4,
