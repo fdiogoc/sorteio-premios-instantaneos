@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -24,6 +24,8 @@ export class LoginFormComponent
   }
   onSubmit()
   {
+
+    // Aqui, você pode adicionar a lógica para autenticar o usuário
     this.authService.login(this.username, this.password)
       .subscribe(success =>
       {

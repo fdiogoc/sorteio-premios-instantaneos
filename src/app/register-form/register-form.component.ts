@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -39,10 +40,12 @@ function isValidCPF(value: string)
 })
 export class RegisterFormComponent
 {
+  @ViewChild('emailInput') emailElement!: ElementRef;
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService)
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router)
   {
+
     this.form = this.formBuilder.group({
       cpf: ['', [Validators.required, cpfValidator()]],
       email: ['', [Validators.required, Validators.email]],
@@ -65,6 +68,7 @@ export class RegisterFormComponent
   {
     if (this.form.valid)
     {
+      console.log(this.emailElement.nativeElement.value)
       const formData = this.form.value;
       delete formData.confirmPassword;
       this.authService.register(formData).subscribe(
@@ -73,6 +77,7 @@ export class RegisterFormComponent
           if (isRegistered)
           {
             console.log('Registration successful');
+            this.router.navigate(['/login']);
           } else
           {
             console.error('Registration failed');

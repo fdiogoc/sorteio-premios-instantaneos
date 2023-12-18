@@ -33,7 +33,7 @@
       "cpf": "1",
       "premio_instataneo": "",
       "data": "2023-11-10",
-      "premio_instataneo_disponivel": true,
+      "premio_instataneo_disponivel": false,
       "valor_cupom": "144.55",
       "winner": false
     },
@@ -42,7 +42,7 @@
       "cpf": "1",
       "premio_instataneo": "",
       "data": "2023-11-11",
-      "premio_instataneo_disponivel": true,
+      "premio_instataneo_disponivel": false,
       "valor_cupom": "104.20",
       "winner": false
     },
@@ -51,7 +51,7 @@
       "cpf": "1",
       "premio_instataneo": "",
       "data": "2023-11-12",
-      "premio_instataneo_disponivel": true,
+      "premio_instataneo_disponivel": false,
       "valor_cupom": "777.33",
       "winner": false
     }

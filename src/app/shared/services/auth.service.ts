@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { API_BASE_URL } from './api.config';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,14 @@ export class AuthService
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   private readonly apiUrl = `${API_BASE_URL}/users`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router)
+  {
+    this.verificarLogin().then(isLoggedIn =>
+    {
+      this.isAuthenticated.next(isLoggedIn);
+    });
+  }
+
   get isLoggedIn()
   {
     return this.isAuthenticated.asObservable();
@@ -71,10 +79,27 @@ export class AuthService
     }
     return '';
   }
+  verificarLogin(): Promise<boolean>
+  {
+    return new Promise((resolve) =>
+    {
+      const usuarioString = localStorage.getItem('usuario');
+      if (usuarioString)
+      {
+        const usuario = JSON.parse(usuarioString);
+        this.isAuthenticated.next(true);
+        resolve(true);
+      } else
+      {
+        resolve(false);
+      }
+    });
+  }
   logout(): void
   {
     localStorage.removeItem('usuario');
     this.isAuthenticated.next(false);
+    this.router.navigate(['/login']);
   }
 
 
